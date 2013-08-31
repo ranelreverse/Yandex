@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<script type="text/javascript" src="lib/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="Game.js"></script>
+
+<script>
+
+    var start = function(){
+        var ctx = createCanvasContext();
+        Game.start(ctx, document.getElementById("playersCount").value, document.getElementById("intervT").value, true, true, true);
+    };
+
+    var createCanvasContext = function(){
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = "grey";
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        return ctx;
+    };
+</script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Привет, Земляне!</title>
+</head>
+    <body>
+
+
+        <span>Количество игроков</span>
+        <select id="playersCount"  style="width: 50px">
+            <option value="2">2</option>
+            <option value="4">4</option>
+
+        </select>
+        <br>
+        <span>Интервал между ходами(мс)</span>
+        <select id="intervT" style="width: 80px">
+            <option value="3">3</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="3000">3000</option>
+        </select>
+
+
+        <br>
+        <button onclick="start()">Начали</button>
+        <br>
+
+        <canvas id="canvas" width=570 height=300></canvas>
+    </body>
+</html>
